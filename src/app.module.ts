@@ -15,7 +15,6 @@ import * as Joi from 'joi';
       envFilePath: environments[process.env.NODE_ENV] || '.env',
       isGlobal: true,
       load: [config],
-      validatePredefined: true,
       validationSchema: Joi.object(validationSchema),
     }),
     UsersModule,
