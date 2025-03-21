@@ -1,5 +1,5 @@
 import { IsString, IsNotEmpty, IsPhoneNumber } from 'class-validator';
-import { PartialType } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 
 export class CreateCustomerDto {
   @IsString()
@@ -12,6 +12,10 @@ export class CreateCustomerDto {
 
   @IsPhoneNumber()
   @IsNotEmpty()
+  @ApiProperty({
+    description:
+      'Phone number must start with country code, without + or any other special character',
+  })
   readonly phone: string;
 }
 

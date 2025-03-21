@@ -1,5 +1,5 @@
 import { IsString, IsNotEmpty, IsEmail, Length } from 'class-validator';
-import { PartialType } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 
 export class CreateUserDto {
   @IsString()
@@ -9,6 +9,7 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @Length(6)
+  @ApiProperty({ description: 'Password must be at least 6 characters long' })
   readonly password: string;
 
   @IsNotEmpty()
