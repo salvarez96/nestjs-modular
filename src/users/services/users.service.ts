@@ -25,6 +25,7 @@ export class UsersService {
 
   findAll() {
     const API_KEY = this.configService.get('API_KEY');
+    console.log(process.env.NODE_ENV);
     console.log(API_KEY);
     return this.users;
   }
