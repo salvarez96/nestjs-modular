@@ -25,11 +25,13 @@ export class UsersService {
   ) {}
 
   findAll() {
-    const API_KEY = this.envs.apiKey;
-    const DATABASE_NAME = this.envs.database.name;
+    const API_KEY = this.envs.API_KEY;
+    const DATABASE_NAME = this.envs.database.NAME;
+    const DATABASE_PORT = this.envs.database.PORT;
 
     console.log(process.env.NODE_ENV);
     console.log(DATABASE_NAME);
+    console.log(typeof DATABASE_PORT, DATABASE_PORT);
     console.log(API_KEY);
     return this.users;
   }

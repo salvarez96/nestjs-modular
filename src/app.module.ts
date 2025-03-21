@@ -6,7 +6,8 @@ import { ProductsModule } from './products/products.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { environments } from 'environments';
-import config from 'config';
+import config, { validationSchema } from 'config';
+import * as Joi from 'joi';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import config from 'config';
       isGlobal: true,
       load: [config],
       validatePredefined: true,
+      validationSchema: Joi.object(validationSchema),
     }),
     UsersModule,
     ProductsModule,
